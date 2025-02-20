@@ -36,7 +36,7 @@ require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/BasemapT
             view.ui.add(basemapGallery, {
                 position: "top-right"
             });
-            document.getElementById("myButton").textContent = "Romove Basemap Gallery";
+            document.getElementById("myButton").textContent = "Hide Basemap Gallery";
             isMapShown = true;
         }
 
