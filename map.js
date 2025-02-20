@@ -21,15 +21,32 @@ require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/BasemapT
 
     document.getElementById("myButton").addEventListener("click", showBasemapGallery);
 
-    function showBasemapGallery() {
-        let basemapGallery = new BasemapGallery({
-            view: view
-        });
+    let isMapShown = false;
+    let basemapGallery;
 
-        // Add widget to the top right corner of the view
-        view.ui.add(basemapGallery, {
-            position: "top-right"
-        });
+    function showBasemapGallery() {
+
+        if (!isMapShown) {
+
+            basemapGallery = new BasemapGallery({
+                view: view
+            });
+
+            // Add widget to the top right corner of the view
+            view.ui.add(basemapGallery, {
+                position: "top-right"
+            });
+            document.getElementById("myButton").textContent = "Romove Basemap Gallery";
+            isMapShown = true;
+        }
+
+        
+
+        else {
+            view.ui.remove(basemapGallery);
+            document.getElementById("myButton").textContent = "Basemap Gallery";
+            isMapShown = false;
+        }
     }
 
 
